@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup Page</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/login.css') }}" /> 
+</head>
+<body>
+
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="/#home" method="get">
+			<h1>Signun</h1>
+			<p>If you have a account use  <a href="{{ url_for('login') }}">login</a></p>
+			<input type="text" placeholder=" Enter Name" />
+			<input type="email" placeholder="Enter Email" />
+			<input type="text" placeholder="Enter contact number" />
+			<input type="password" placeholder=" Enter Password" />
+			<input type="password" placeholder=" Confirm Password" />
+			<button>Signun</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="SignIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<img src="static/images/lady0.png" width="200px">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+</body>
