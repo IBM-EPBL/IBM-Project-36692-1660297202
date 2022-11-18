@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dashboard.css')}}">
+</head>
+<body>
+    <div class="container">
+        
+        
+        <div class="navigation">
+            <ul> 
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="person-sharp"></ion-icon></span>
+                        <span class="title"><b><h1>USER</h1></b></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home-sharp"></ion-icon></span>
+                        <span class="title"><h3>Dashboard</h3></span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="logo-dropbox"></ion-icon></span>
+                        <span class="title"><h3>My Complaints</h3> </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('complaint') }}">
+                        <span class="icon"><ion-icon name="create-sharp"></ion-icon></span>
+                        <span class="title"><h3>Post a Complaint</h3></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="logo-stackoverflow"></ion-icon></span>
+                        <span class="title"><h3>Low Stocks</h3></span>
+                    </a>
+                </li> 
+                <li>
+                    <a href="{{url_for('home')}}">
+                        <span class="icon"><ion-icon name="exit-outline"></ion-icon></span>
+                        <span class="title"><h3>Sign out</h3></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+      <!-- main-->
+      <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <!--search-->
+            <div class="row col-md-offset-3 col-md-5 ">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                <div class="alert alert-{{category}} text-center" style="color: red;text-align: center;">{{message}}</div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <!--userImg-->
+            
+          </div>
+          <!--cards-->
+          <div class="cardBox">
+            <div class="card">
+                <div>
+                    <div class="numbers">1505</div>
+                    <div class="cardname"> Daily views</div>
+                </div>
+                <div class="iconBx"><ion-icon name="eye-sharp"></ion-icon></div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">54</div>
+                    <div class="cardname"> Customers</div>
+                </div>
+                <div class="iconBx"><ion-icon name="people-sharp"></ion-icon></div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">80</div>
+                    <div class="cardname"> Sales</div>
+                </div>
+                <div class="iconBx"><ion-icon name="bar-chart-sharp"></ion-icon></div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">23</div>
+                    <div class="cardname"> Low stocks item</div>
+                </div>
+                <div class="iconBx"><ion-icon name="warning-sharp"></ion-icon></div>
+            </div>
+          </div>
+          <!--oreder details two main container-->
+          <div class="details">
+             <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2> Recent Orders </h2>
+
+                <a href="#" class="btn"> View all</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td> Name</td>
+                            <td>Price</td>
+                            <td>payment method</td>
+                            <td>Status</td>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Laptop</td>
+                            <td>15000.00</td>
+                            <td>online</td>
+                            <td><span class="status pending"> Pending </span></td>
+                        </tr>
+                        <tr>
+                            <td>Android Mobile</td>
+                            <td>8000.00</td>
+                            <td>online</td>
+                            <td><span class="status received"> PAID </span></td>
+                        </tr>
+                        <tr>
+                            <td> Headphone</td>
+                            <td>900.00</td>
+                            <td>cod</td>
+                            <td><span class="status pending"> Pending </span></td>
+                        </tr>
+                        <tr>
+                            <td> Home theatre</td>
+                            <td>5000.00</td>
+                            <td>cod</td>
+                            <td><span class="status pending"> Pending </span></td>
+                        </tr>
+                        <tr>
+                            <td> Projector</td>
+                            <td>4000.00</td>
+                            <td>online</td>
+                            <td><span class="status received"> PAID </span></td>
+                        </tr>
+                        <tr>
+                            <td> Washing Machine</td>
+                            <td>5000.00</td>
+                            <td>cod</td>
+                            <td><span class="status notreceived"> UNPAID</span></td>
+                        </tr>
+                        <tr>
+                            <td> Smart Watch</td>
+                            <td>1000.00</td>
+                            <td>cod</td>
+                            <td><span class="status notreceived"> UNPAID </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+             </div>
+             <!--new customers-->
+             
+
+
+
+                </table>
+             </div>
+          </div>
+        </div>
+    </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!--menu toggle-->
+<script>
+    let toggle=document.querySelector('.toggle');
+    let navigation=document.querySelector('.navigation');
+    let main=document.querySelector('.main');
+
+    toggle.onclick=function()
+    {
+      navigation.classList.toggle('active')
+      main.classList.toggle('active')
+    }
+
+</script>
+<script>
+    //add hovered class in selected list item
+    let list=document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) =>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered');
+    }
+    list.forEach((item)=>
+    item.addEventListener('mouseover',activeLink))
+</script>
+</body>
+</html>

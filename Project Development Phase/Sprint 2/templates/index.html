@@ -1,0 +1,483 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+  <title>Index</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/FAQ.css') }}">
+{% endblock %}
+
+{% block body %}
+<!-- Move to up button -->
+<style>
+
+@media(min-width:568px){
+    .end{
+        margin-left: auto;
+    }
+}
+
+@media(max-width:768px){
+    #post{
+        width: 30%;
+    }
+}
+#clicked{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+    width: 100%;
+    background-color: #0030668e;
+    border-color: #a85534 #9c5331 #844329;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 13px; 
+}
+
+#profile{
+    background-color: unset;
+    
+} 
+
+#post{
+    margin: 10px;
+    padding: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+    background-color: #00599493;
+    border-color: #036085b7 #003866ab #844329;
+    color: rgb(0, 0, 0);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 13px;
+    width: 50%;
+}
+
+
+
+#nav-items li a,#profile{
+    text-decoration: none;
+    color: rgb(224, 219, 219);
+}
+
+
+.comments{
+    margin-top: 5%;
+    margin-left: 20px;
+}
+
+.darker{
+    border: 1px solid #ec4f1f;
+    float: right;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.comment{
+    border: 1px solid rgb(16, 23, 46);
+    background-color: rgba(16, 24, 46, 0.973);
+    float: left;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    
+}
+.comment h4,.comment span,.darker h4,.darker span{
+    display: inline;
+}
+
+.comment p,.comment span,.darker p,.darker span{
+    color: rgb(184, 183, 183);
+}
+
+h1,h4{
+    color: white;
+    font-weight: bold;
+}
+label{
+    color: rgb(212, 208, 208);
+}
+
+#align-form{
+    margin-top: 20px;
+}
+.form-group p a{
+    color: white;
+}
+
+
+#darker img{
+    margin-right: 15px;
+    position: static;
+}
+
+.form-group input,.form-group textarea{
+    border: 1px solid rgb(16, 28, 46);
+    border-radius: 12px;
+}
+
+form{
+    border: 1px solid rgb(16, 23, 46);
+    background-color: rgba(16, 25, 46, 0.973);
+    border-radius: 5px;
+    padding: 20px;
+ }
+</style>
+  <div style="background-color: red;color: aliceblue;">{{msg}}</div>
+  <div class="scroll-button">
+    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+  </div>
+  <!-- navgaition menu -->
+  <nav>
+    <div class="navbar">
+      <div class="logo"><a href="#">Customer Care</a></div>
+      <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Comments</a></li>
+          <li><a href="#product">Categories</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="{{ url_for('signup') }}">Signup</a>
+          </li>
+          <li><a href="{{ url_for('login') }}">Login</a>
+          </li>
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+      </ul>
+      <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+<!-- Home Section Start -->
+ <section class="home" id="home">
+   <div class="home-content">
+     <div class="text">
+       <div class="text-one">Welcome,</div>
+       <div class="text-two">Customer Care</div>
+       <div class="text-three">Customer Loyalty is Priceless</div>
+       <div class="text-four">From India</div>
+     </div>
+     <div class="button">
+       <a id="agentreg" href="{{ url_for('agentreg') }}">Agent Registeration</a>
+       <br>
+       <br>
+       <a id="agentlogin" href="{{ url_for('agentlogin') }}">Agent login</a>
+     </div>
+   </div>
+ </section>
+
+<!-- About Section Start -->
+<section class="about" id="about">
+  <div class="content">
+    <div class="title"><span>About Us</span></div>
+  <div class="about-details">
+    <div class="left">
+      <img src="static/images/background.png" alt="">
+    </div>
+    <div class="right">
+      <div class="topic">Customer Care Info</div>
+      <p>Welcome to Customercareinfo.in, An information portal that publishes Customer Care Contact information of all Indian companies across all categories. Find Address, Toll Free Numbers and Email Support information with ease.</p>
+      <div class="button">
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<!-- My Skill Section Start -->
+<!-- Section Tag and Other Div will same where we need to put same CSS -->
+<section style="background-color: #F0F8FF; ">
+  <div class="comments" id="skills"></div>
+  <div class="container">
+      <div class="row">
+        <h1 style="color:  #0E2431;text-align: center;">Leave a comment</h1>
+          <div class="col-sm-5 col-md-6 col-12 pb-4">
+              <form id="algin-form">
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="fullname" class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control">
+                    <button type="button" id="post" class="btn">Post Comment</button>
+                </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- My Services Section Start -->
+ <section class="services" id="product">
+   <div class="content">
+     <div class="title"><span>Categories</span></div>
+     <div class="boxes">
+       <div class="box">
+         <div class="icon">
+          <i class="fa fa-bank"></i>
+       </div>
+       <div class="topic">Banking</div>
+       <p>A method of banking in which tansactions are conducted electronically over the internet."Some customers have concerns about the security of online banking".</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-car"></i>
+       </div>
+       <div class="topic">Automobiles</div>
+       <p>An automobile is a self-propelled motor vehicle intended for passenger transportation on land.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-home"></i>
+       </div>
+       <div class="topic">Home Appliances</div>
+       <p>A home appliance,also referred to as a domestic appliance or a household appliance,is a machine which assists in household functions such as cooking,cleaning and food preservation.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-plug"></i>
+       </div>
+       <div class="topic">Electronics</div>
+       <p>The branch of physics that helps to study the emission,and behaviour of electrons with electronic devices.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fab fa-android"></i>
+       </div>
+       <div class="topic">Mobiles</div>
+       <p>A mobile is a wireless handheld device that allows user to make and receive calls.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-cart-plus"></i>
+       </div>
+       <div class="topic">E-Shopping</div>
+       <p>E-shopping is the process of buying goods and services from merchants who sell their products on the internet.</p>
+     </div>
+   </div>
+   </div>
+</section>
+
+
+
+<div class="section" id="faq">
+        <div class="content">
+          <h1 class="title">FAQ Section</h1>
+          <div class="container-1">
+  
+              <div class="faq">
+                  <div class="question">
+                      <h2>How is quality ensured?</h2>
+                      <i class="fa fa-arrow-circle-o-right"></i>
+                  </div>
+                  <div class="answer">
+                      <p>For each task we select corresponding Clickworkers according to their individual skills. These skills have been verified through trainings and tests. Furthermore, their skills are continuously subjected to evaluation based on the work results. In addition, the high quality of the work results are secured by special quality management measures such as statistic process control, audits, peer reviews and evaluation.</p>
+                  </div>
+              </div>
+  
+              <div class="faq">
+                  <div class="question">
+                      <h2>What preliminary information is needed for an offer?</h2>
+                      <i class="fa fa-arrow-circle-o-right"></i>
+                  </div>
+                  <div class="answer">
+                      <p>Depending on the service requested.</p>
+                  </div>
+              </div>
+  
+              <div class="faq">
+                  <div class="question">
+                      <h2>when do I receive the invoices?</h2>
+                      <i class="fa fa-arrow-circle-o-right"></i>
+                  </div>
+                  <div class="answer">
+                      <p>You will get your invoices within 24 hours.</p>
+                  </div>
+              </div>
+  
+          </div></div>
+
+        <div class="container-2">
+
+            <div class="faq">
+                <div class="question">
+                    <h2>Is there a charge to sign up for a customer care account?</h2>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </div>
+                <div class="answer">
+                    <p>No,There will be no charges to sign up for a customer care account.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="question">
+                    <h2>How can I place orders?</h2>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </div>
+                <div class="answer">
+                    <p>There are two ways to place orders for our services:
+                      By using the Self-Service Marketplace or by placing an individual order and personal contact to our sales team.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="question">
+                    <h2>Which method of ordering is best for me?</h2>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </div>
+                <div class="answer">
+                    <p>In the areas of standardized text creation survey tasks and sentiment analysis, it is more advantageous and favorable for you to enter the order using the Self-Service Marketplace.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!--<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>click button </span></div>
+    <div class="text">
+      
+      <div class="button">
+        <p><a href="../register.html"><button>register now</button></a></p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>-->
+
+
+<!--<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>click button </span></div>
+    <div class="text">
+      
+      <div class="button">
+        <p><a href="../Customer Care Registry/login.html"><button>Sign up</button></a></p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>-->
+
+
+<!-- Contact Me section Start -->
+<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>Contact Us</span></div>
+    <div class="text">
+      <div class="topic">Customer Care Email:santasanthosh7252@gmail.com and Customer Care Number:7397712457FLASK</div>
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer Section Start -->
+<footer>
+  <div class="text">
+    <span>Created By   </span>
+    <br>
+    <span>Santhosh.K   |</span>
+    <span>Naresh kumar.D   |</span>
+    <span>Sathishkumar.P   |</span>
+    <span>Yogesh kumar.K</span>
+  </div>
+</footer>
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "0032bdd2-5b59-4312-a00c-cece7ea268f0", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "30b01793-f193-4ada-a147-4610ae753688", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+
+    // Sticky Navigation Menu JS Code
+let nav = document.querySelector("nav");
+let scrollBtn = document.querySelector(".scroll-button a");
+console.log(scrollBtn);
+let val;
+window.onscroll = function() {
+  if(document.documentElement.scrollTop > 20){
+    nav.classList.add("sticky");
+    scrollBtn.style.display = "block";
+  }else{
+    nav.classList.remove("sticky");
+    scrollBtn.style.display = "none";
+  }
+
+}
+
+// Side NavIgation Menu JS Code
+let body = document.querySelector("body");
+let navBar = document.querySelector(".navbar");
+let menuBtn = document.querySelector(".menu-btn");
+let cancelBtn = document.querySelector(".cancel-btn");
+menuBtn.onclick = function(){
+  navBar.classList.add("active");
+  menuBtn.style.opacity = "0";
+  menuBtn.style.pointerEvents = "none";
+  body.style.overflow = "hidden";
+  scrollBtn.style.pointerEvents = "none";
+}
+cancelBtn.onclick = function(){
+  navBar.classList.remove("active");
+  menuBtn.style.opacity = "1";
+  menuBtn.style.pointerEvents = "auto";
+  body.style.overflow = "auto";
+  scrollBtn.style.pointerEvents = "auto";
+}
+
+// Side Navigation Bar Close While We Click On Navigation Links
+let navLinks = document.querySelectorAll(".menu li a");
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click" , function() {
+    navBar.classList.remove("active");
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerEvents = "auto";
+  });
+}
+
+
+//faq
+
+
+
+const question = document.querySelectorAll('.faq');
+
+question.forEach(faq => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+    })
+})
+</script>
+{% endblock %}

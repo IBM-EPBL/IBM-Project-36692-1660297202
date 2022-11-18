@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>complaint</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/complaint.css') }}">
+</head>
+<body>
+    <div class="contact-us">
+        <form action="{{ url_for('issues') }}" method="GET">
+          <input id="customerName" name="customer_name"  type="text" placeholder="Customer Name"/>
+          <input id="customerEmail" name="mail"  type="email" placeholder="Email"/>
+          <input id="customerPhone" name="Phone"  type="text" placeholder="Phone Number"/>
+          <input id="customerPhone" name="date"  type="text" placeholder="Date"/>
+          <input id="orderNumber" name="title" type="text" placeholder="Title"/>
+          </label>
+          <input type="text" name="description" rows="4" />
+          <h3>
+            Please provide all the information about your issue you can.
+          </h3>
+          <button id="customerOrder">SUBMIT</button>
+        </form>
+      </div>
+</body>
+</html>

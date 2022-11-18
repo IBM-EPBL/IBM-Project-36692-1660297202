@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Agent Reg Page </title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/agentreg.css') }}" /> 
+</head>
+<body>
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="{{ url_for('agentform') }}" method="POST">
+			<h1>Agent Registration</h1><br>
+			
+			
+            <input type="Name" placeholder="Name" name="name"/>
+			<input type="email" placeholder="Email" name="email"/>
+			<input type="text" placeholder="Phone Number" name="phone"/>
+			<input type="Password" placeholder="Create new password" name="password"/>
+            <input type="text" placeholder="Address" name="address"/>
+			<input type="text" placeholder="City" name="city"/>
+			<input type="text" placeholder="State" name="state"/>
+			<input type="text" name="resume_link" placeholder="Resume_link">
+            <br>
+			<p>Already have an account <a href="{{ url_for('agentlogin') }}">login</a></p>
+			<button type="submit">register in</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				
+			
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Agent !</h1>
+				<p>Enter your personal details and start your beautiful journey with us </p>
+				<img src="static/images/agent.png" width="200px">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+</body>
