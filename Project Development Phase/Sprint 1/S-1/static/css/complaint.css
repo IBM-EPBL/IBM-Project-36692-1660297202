@@ -1,0 +1,114 @@
+/*@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:  #0a5abc;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-size: 12pt;
+  font-family: 'Montserrat', sans-serif;
+  color: #0747bd;
+}
+
+.contact-us {
+  background: #f8f4e5;
+  padding: 50px 100px;
+  border-top: 10px solid #0b23d8;
+}
+
+label, input, textarea {
+  display: block;
+  width: 100%;
+  font-size: 12pt;
+  line-height: 24pt;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input {
+  margin-bottom: 24pt;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 10pt;
+  line-height: 24pt;
+  font-style: italic;
+  margin: 0 0 0.5em 0;
+}
+
+span {
+  font-size: 8pt;
+}
+
+em {
+  color: #e63d0f;
+  font-weight: bold;
+}
+
+input, textarea {
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background: #f8f4e5;
+  padding-left: 5px;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid  #146cdf;
+}
+
+textarea {
+  resize: none;
+}
+
+
+button {
+	border-radius: 20px;
+	border: 1px solid #27efce;
+	background-color:#21f6eb;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+::selection {
+  background: #0bcf67;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  border: 1px solid #04337a;
+  -webkit-text-fill-color: #1c1c1e;
+  transition: background-color 5000s ease-in-out 0s;
+}
