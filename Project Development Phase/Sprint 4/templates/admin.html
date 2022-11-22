@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Welcome Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<!--------------------------------------------------------------header--------------------------------------------------->
+<body >
+<style>
+*{
+    font-family:'Ubuntu';
+}
+
+</style>
+<nav>
+    <div class="navbar">
+      <div class="logo"><a href="#">Customer Care</a></div>
+      <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Comments</a></li>
+          <li><a href="#product">Categories</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
+          
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+      </ul>
+      <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+<!-------------------------------------------------------End of header--------------------------------------------------->
+    <div class="container-md" style="padding-top: 100px;">
+
+        <div class="row" style="height:100px;">
+            <h1 class="page-header text-primary mx-auto" style="text-align: center; color: #2B7C85; font-family:'Ubuntu', sans-serif ;">    WELCOME TO ADMIN PAGE</h1>
+        </div>
+
+        <div class="row col-md-offset-3 col-md-5 ">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category,message in messages %}
+            <div class="alert alert-{{category}} text-center" style="color: red;text-align: center;">{{message}}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+
+    </div>
+        
+
+<!---------------------------------------------------User Database--------------------------------------------------- -->
+
+    
+
+    </div>
+    <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">User Datatbase</a>
+    </div>
+    <div>
+        <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+        width="100%">
+            <thead>
+              <tr>
+                <th scope="row" onclick="sortTable(1)">NAME</th>
+                <th scope="row" onclick="sortTable(0)">EMAIL</th>
+                <th scope="row" onclick="sortTable(1)">PASSWORD</th>
+                <th scope="row" onclick="sortTable(0)">PHONENUMBER</th>
+                <th scope="row">DELECT</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for row in customer %}
+                <tr>
+                    <td style="color: black;">{{row["NAME"]}}</td>
+                    <td style="color: black;">{{row["EMAIL"]}}</td>
+                    <td style="color: black;">{{row["PASSWORD"]}}</td>
+                    <td style="color: black;">{{row["PHONE"]}}</td>
+                    <td><a style="color: black;" href="/delete/{{row['NAME']}} " class="btn btn-outline-secondary">DELETE</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+
+<!---------------------------------------------------Agent Database--------------------------------------------------- -->
+
+
+    <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">Agent Database</a>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-sm" cellspacing="0"
+        width="100%">
+            <thead>
+                <tr>  
+                    <th scope="row" onclick="sortTable(1)">NAME</th>
+                    <th scope="row" onclick="sortTable(0)">EMAIL</th>
+                    <th scope="row" onclick="sortTable(0)">PHONE NUMBER</th>
+                    <th scope="row" onclick="sortTable(1)">PASSWORD</th>
+                    <th scope="row" onclick="sortTable(0)">ADDRESS</th>
+                    <th scope="row" onclick="sortTable(1)">CITY</th>
+                    <th scope="row" onclick="sortTable(0)">STATE</th>
+                    <th scope="row" onclick="sortTable(1)">RESUME LINK</th>
+                    <th scope="row">DELECT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in agent %}
+                    <tr>
+                        <td style="color: black;">{{row["NAME"]}}</td>
+                        <td style="color: black;">{{row["EMAIL"]}}</td>
+                        <td style="color: black;">{{row["PHONE"]}}</td>
+                        <td style="color: black;">{{row["PASSWORD"]}}</td>
+                        <td style="color: black;">{{row["ADDRESS"]}}</td>
+                        <td style="color: black;">{{row["CITY"]}}</td>
+                        <td style="color: black;">{{row["STATE"]}}</td>
+                        <td style="color: black;">{{row["RESUME_LINK"]}}</td>
+                        <td><a style="color: black;" href="/agentdelete/{{row['EMAIL']}} " class="btn btn-outline-secondary">DELETE</a></td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+
+<!---------------------------------------------------Complaint Database--------------------------------------------------- -->
+    
+    <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">Complaint Database</a>
+    </div>
+    <div>
+        <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+        width="100%">
+            <thead>
+                <tr>
+                    <th scope="row" onclick="sortTable(0)">CUSTOMER_NAME</th>
+                    <th scope="row" onclick="sortTable(1)">EMAIL</th>
+                    <th scope="row" onclick="sortTable(0)">PHONE_NUMBER</th>
+                    <th scope="row" onclick="sortTable(1)">DATE</th>
+                    <th scope="row" onclick="sortTable(0)">TOPIC</th>
+                    <th scope="row" onclick="sortTable(1)">DESCRIPTION</th>
+                    <th scope="row" onclick="sortTable(0)">SERVICE_AGENT</th>
+                    <th scope="row" onclick="sortTable(1)">STATUS</th>
+                    <th scope="row" onclick="sortTable(0)">DELETE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in issues %}
+                    <tr>
+                        <td style="color: black;">{{row["CUSTOMERNAME"]}}</td>
+                        <td style="color: black;">{{row["EMAIL"]}}</td>
+                        <td style="color: black;">{{row["PHONE"]}}</td>
+                        <td style="color: black;">{{row["DATE"]}}</td>
+                        <td style="color: black;">{{row["TOPIC"]}}</td>
+                        <td style="color: black;">{{row["DESCRIPTION"]}}</td>
+                        <td style="color: black;">{{row["SERVICEAGENT"]}}</td>
+                        <td style="color: black;">{{row['STATUS']}}</td>
+                        <td><a style="color: black;" href="/deletecomplaint/{{row['EMAIL']}} " type="button" class="btn btn-outline-secondary">DELETE</a></td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+
+<!-- --------------------------------------------------------------Scripts--------------------------------------------------- -->
+<div class="alert alert-dark" role="alert" style="text-align: center;">
+  Agent Allocation
+</div>
+
+<form action="{{ url_for('agentalloc') }}" method="POST">
+  <div class="form-group" >
+    <label for="exampleInputEmail1">Complaint mail</label>
+    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Agent Email</label>
+    <input name="agentmail" type="text" class="form-control" id="exampleInputPassword1" placeholder="Agent mail">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+
+let nav = document.querySelector("nav");
+let scrollBtn = document.querySelector(".scroll-button a");
+console.log(scrollBtn);
+let val;
+window.onscroll = function() {
+  if(document.documentElement.scrollTop > 20){
+    nav.classList.add("sticky");
+    scrollBtn.style.display = "block";
+  }else{
+    nav.classList.remove("sticky");
+    scrollBtn.style.display = "none";
+  }
+
+}
+
+// Side NavIgation Menu JS Code
+let body = document.querySelector("body");
+let navBar = document.querySelector(".navbar");
+let menuBtn = document.querySelector(".menu-btn");
+let cancelBtn = document.querySelector(".cancel-btn");
+menuBtn.onclick = function(){
+  navBar.classList.add("active");
+  menuBtn.style.opacity = "0";
+  menuBtn.style.pointerEvents = "none";
+  body.style.overflow = "hidden";
+  scrollBtn.style.pointerEvents = "none";
+}
+cancelBtn.onclick = function(){
+  navBar.classList.remove("active");
+  menuBtn.style.opacity = "1";
+  menuBtn.style.pointerEvents = "auto";
+  body.style.overflow = "auto";
+  scrollBtn.style.pointerEvents = "auto";
+}
+
+// Side Navigation Bar Close While We Click On Navigation Links
+let navLinks = document.querySelectorAll(".menu li a");
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click" , function() {
+    navBar.classList.remove("active");
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerEvents = "auto";
+  });
+}
+
+
+//table code
+
+
+$(document).ready(function () {
+  $('#dtHorizontalExample').DataTable({
+    "scrollX": true
+  });
+  $('.dataTables_length').addClass('bs-select');
+});
+</script>
+        
+
+<!----------------------------------------------------------Footer------------------------------------------------------->
+  <footer>
+    <div class="text">
+      <span>Created By   </span>
+      <br>
+      <span>Santhosh.K   |</span>
+      <span>Naresh kumar.D   |</span>
+      <span>Sathishkumar.P   |</span>
+      <span>Yogesh kumar.K</span>
+    </div>
+  </footer>
+
+</body>
+
+<!-------------------------------------------------------End of Footer--------------------------------------------------->
+{% endblock %}

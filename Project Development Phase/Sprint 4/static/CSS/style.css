@@ -1,0 +1,760 @@
+/* Google Font CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Custom Scroll Bar CSS */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #2defef;
+}
+::-webkit-scrollbar-thumb {
+    background: #2defef;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #16dff1;
+}
+/* navbar styling */
+nav{
+  position: fixed;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 998;
+  transition: all 0.3s ease;
+  font-family: 'Ubuntu', sans-serif;
+}
+nav.sticky{
+  background: #17e6d4;
+  padding: 13px 0;
+}
+nav .navbar{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+nav .navbar .logo a{
+  font-weight: 500;
+  font-size: 35px;
+  color: #2dd6e8;
+}
+nav.sticky .navbar .logo a{
+  color: #fff;
+}
+nav .navbar .menu{
+  display: flex;
+  position: relative;
+}
+nav .navbar .menu li{
+  list-style: none;
+  margin: 0 8px;
+}
+.navbar .menu a{
+  font-size: 18px;
+  font-weight: 500;
+  color: #94c2d0;
+  padding: 6px 0;
+  transition: all 0.4s ease;
+}
+.navbar .menu a:hover{
+  color: #0e50d5;
+}
+nav.sticky .menu a{
+  color: #FFF;
+}
+nav.sticky .menu a:hover{
+  color: #12384e;
+}
+.navbar .media-icons a{
+  color: #2793ec;
+  font-size: 18px;
+  margin: 0 6px;
+}
+nav.sticky .media-icons a{
+  color: #FFF;
+}
+
+#agent
+
+#signup{
+  background: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #113a44;
+  padding: 8px 16px;
+  transition: all 0.4s ease;
+  font-family: 'Ubuntu', sans-serif;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+#signin{
+  background: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #113a44;
+  padding: 8px 16px;
+  transition: all 0.4s ease;
+  font-family: 'Ubuntu', sans-serif;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+
+
+/* Side Navigation Menu Button CSS */
+nav .menu-btn,
+.navbar .menu .cancel-btn{
+  position: absolute;
+  color: #fff;
+  right: 30px;
+  top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+}
+nav .menu-btn{
+  color: #2473e1;
+}
+nav.sticky .menu-btn{
+  color: #FFF;
+}
+.navbar .menu .menu-btn{
+  color: #fff;
+}
+
+/* home section styling */
+.home{
+  height: 100vh;
+  width: 100%;
+  background: url("../images/customer0.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
+}
+.home .home-content{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home .text-one{
+  font-size: 25px;
+  color: #99dbc7;
+}
+.home .text-two{
+  color: #99dbc7;
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+.home .text-three{
+  font-size: 40px;
+  margin: 5px 0;
+  color: #4deeeb;
+}
+.home .text-four{
+  font-size: 23px;
+  margin: 5px 0;
+  color: #0E2431;
+}
+
+
+/* About Section Styling */
+/* Those Elements Where We Have Apply Same CSS,
+ I'm Selecting Directly 'Section Tag' and 'Class'  */
+section{
+  padding-top: 40px;
+}
+section .content{
+  width: 80%;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+}
+.about .about-details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section .title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+section .title span{
+  color: #0E2431;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+section .title span::before,
+section .title span::after{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #2beab4;
+  left: 0;
+  bottom: 0;
+}
+section .title span::after{
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about .about-details .left{
+  width: 45%;
+}
+.about .left img{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.about-details .right{
+  width: 55%;
+}
+section  .topic{
+  color: #0E2431;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.about-details .right p{
+  text-align: justify;
+  color: #0E2431;
+}
+section .button{
+  margin: 16px 0;
+}
+section .button button{
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 400;
+  background: #28eabd;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+section .button button:hover{
+  border-color: #28eabd;
+  background-color: #fff;
+  color: #28eabd;
+}
+
+ /* My Skills CSS */
+ .skills{
+   background: #F0F8FF;
+ }
+ .skills .content{
+   padding: 40px 0;
+ }
+ .skills .skills-details{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ .skills-details .text{
+   width: 50%;
+ }
+ .skills-details p{
+   color: #0E2431;
+   text-align: justify;
+ }
+.skills .skills-details .experience{
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+.skills-details .experience .num{
+  color: #0E2431;
+  font-size: 80px;
+}
+.skills-details .experience .exp{
+  color: #0E2431;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 6px;
+}
+.skills-details .boxes{
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.skills-details .box{
+  width: calc(100% / 2 - 20px);
+  margin: 20px 0;
+}
+.skills-details .boxes .topic{
+  font-size: 20px;
+  color: #37cdaf;
+}
+.skills-details .boxes .per{
+  font-size: 60px;
+  color: #37cdaf;
+}
+
+/* My Services CSS */
+.services .boxes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.services .boxes .box{
+  margin: 20px 0;
+  width: calc(100% / 3 - 20px);
+  text-align: center;
+  border-radius: 12px;
+  padding: 30px 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  cursor: default;
+  transition: all 0.4s ease;
+}
+.services .boxes .box:hover{
+  background: #2bd4d4;
+  color: #fff;
+}
+.services .boxes .box .icon{
+  height: 50px;
+  width: 50px;
+  background: #2bd4d4;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  color: #fff;
+  margin: 0 auto 10px auto;
+  transition: all 0.4s ease;
+}
+.boxes .box:hover .icon{
+  background-color: #fff;
+  color: #2bd4d4;
+}
+.services .boxes .box:hover .topic,
+.services .boxes .box:hover p{
+  color: #0E2431;
+  transition: all 0.4s ease;
+}
+.services .boxes .box:hover .topic,
+.services .boxes .box:hover p{
+  color: #fff;
+}
+
+
+
+
+
+
+/* Contact Me CSS */
+.contact{
+  background: #F0F8FF;
+}
+.contact .content{
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.contact .text{
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+/* Footer CSS */
+footer{
+  background: #2b8570;
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+footer .text span{
+  font-size: 17px;
+  font-weight: 400;
+  color: #fff;
+}
+footer .text span a{
+  font-weight: 500;
+  color: #FFF;
+}
+footer .text span a:hover{
+  text-decoration: underline;
+}
+/* Scroll TO Top Button CSS */
+.scroll-button a{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background: #2b856f;
+  padding: 7px 12px;;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+/* Responsive Media Query */
+@media (max-width: 1190px) {
+  section .content{
+    width: 85%;
+  }
+}
+@media (max-width: 1000px) {
+  .about .about-details{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .about .about-details .left{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .about-details .right{
+    width: 90%;
+    margin: 40px 0;
+  }
+  .services .boxes .box{
+    margin: 20px 0;
+    width: calc(100% / 2 - 20px);
+  }
+}
+@media (max-width: 900px) {
+  .about .left img{
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 750px) {
+  nav .navbar{
+    width: 90%;
+  }
+  nav .navbar .menu{
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background: #0E2431;
+    height: 100vh;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
+  .navbar.active .menu{
+    left: 0;
+  }
+  nav .navbar .menu a{
+    font-size: 23px;
+    display: block;
+    color: #fff;
+    margin: 10px 0;
+  }
+  nav.sticky .menu a:hover{
+    color: #2b8576;
+  }
+  nav .navbar .media-icons{
+    display: none;
+  }
+  nav .menu-btn,
+  .navbar .menu .cancel-btn{
+    display: block;
+  }
+  .home .text-two{
+    font-size: 65px;
+  }
+  .home .text-three{
+    font-size: 35px;
+  }
+  .skills .skills-details{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .skills-details .text{
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .skills-details .boxes{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .services .boxes .box{
+    margin: 20px 0;
+    width: 100%;
+  }
+  .contact .text{
+    width: 100%;
+}
+}
+
+@media (max-width: 500px){
+  .home .text-two{
+    font-size: 55px;
+  }
+  .home .text-three{
+    font-size: 33px;
+  }
+  .skills-details .boxes .per{
+    font-size: 50px;
+    color: #2b8578;
+  }
+}
+
+.form-title {
+  color: #0087c5;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px 0px 30px 0px;
+}
+
+.form-title-sc {
+  color: #2c3138;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px 0px 30px 0px;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  padding: 15px 30px;
+  background: white;
+  box-shadow: 0px 0px 3px rgba(208, 208, 208, 0.3);
+  border-radius: 4px;
+}
+
+.form-controll {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-controll:not(:last-of-type) {
+  margin-bottom: 33px;
+}
+
+.form-input {
+  position: relative;
+  width:100%;
+}
+
+.form-input input,
+.form-input textarea {
+  position: relative;
+  width:100%;
+  padding: 8px 0px;
+  outline: 1px solid transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #c2c2c2;
+  background: transparent !important;
+  z-index: 9;
+  color: #2c3638;
+}
+
+.form-controll label  {
+  position: absolute;
+  left: 0px;
+  bottom: 10px;
+  color: #c2c2c2;
+  font-size: 14px;
+  z-index: 1;
+  transition: all 0.1s ease-in;
+}
+
+input:focus + label,
+input:valid + label,
+textarea:focus + label,
+textarea:valid + label {
+  bottom: 100%;
+  z-index: 9;
+  transition: all 0.1s ease-in-out;
+}
+
+textarea {
+  resize: none;
+  min-height: 50px;
+}
+
+input:focus {
+  border-bottom: 1px solid #0066c5;
+}
+
+
+
+.form-submit {
+  position: relative;
+  width:100%;
+  margin: 14px 0px;
+}
+
+.form-submit .form-btn {
+  width:100%;
+  padding: 8px;
+  background: #00c57391;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.form-submit .form-btn:hover {
+  background: #007dc5;
+  transition: all 0.2s ease-out;
+}
+
+.grid-2 {
+  position: relative;
+  width:100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.password-showHide{
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  display: grid;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index:99;
+}
+
+.password-showHide .icon {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+
+.password-showHide .icon path {
+  fill: #c2c2c2;
+  transition: all 0.2s ease;
+}
+
+.password-showHide:hover .icon path {
+  fill: #2c3638;
+  transition: all 0.2s ease;
+}
+
+.password-showHide .icon.show-password {
+  opacity: 1;
+  z-index: 9;
+}
+.password-showHide .icon.hide-password {
+  opacity: 0;
+  z-index: -1;
+}
+
+.password-showHide.hide .icon.show-password {
+  opacity: 0;
+  z-index: -1;
+}
+
+.password-showHide.hide .icon.hide-password {
+  z-index: 9;
+  opacity: 1;
+}
+
+/*Steps*/
+
+.step-tab-items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.step-tab-items .step-item {
+  position: relative;
+  list-style: none;
+  width: 25px;
+  height: 25px;
+  background: #e2e2e2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.step-tab-items .step-item.active {
+  background: #0055c5;
+}
+
+
+.step-tab-items .step-item:not(:last-child) {
+  margin-right: 45px;
+}
+
+.step-tab-items .step-item:not(:last-of-type)::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: rgb(241, 239, 239);
+  left: calc(100% + 10px);
+}
+
+.step-tab-items .step-item.active::before {
+  background: #0066c5;
+}
+
+.step-tabs .step-tab {
+  display: none;
+}
+
+.step-tabs .step-tab.active {
+  display: block;
+}
+
+/*comments*/
+
+
+

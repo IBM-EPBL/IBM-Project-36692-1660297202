@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/reg.css') }}" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>Agent Dashboard</title>
+</head>
+<body>
+  <style>
+
+*{
+  font-family:'Ubuntu';
+}
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    
+    <!-- <nav>
+        <div class="navbar">
+          <div class="logo"><a href="#">Customer Care</a></div>
+          <ul class="menu">
+              <li><a href="">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Comments</a></li>
+              <li><a href="#product">Categories</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
+              
+              <div class="cancel-btn">
+                <i class="fas fa-times"></i>
+              </div>
+          </ul>
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav> -->
+    <!-------------------------------------------------------End of header--------------------------------------------------->
+        <div class="container-md" style="padding-top: 100px;">
+    
+            <div class="row" style="height:100px;">
+                <h1 class="page-header text-primary mx-auto" style="text-align: center; color: #2B7C85; font-family:'Ubuntu', sans-serif ;">    WELCOME TO AGENT PAGE</h1>
+            </div>
+    
+            <div class="row col-md-offset-3 col-md-5 ">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                <div class="alert alert-{{category}} text-center" style="color: red;text-align: center;">{{message}}</div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+    
+        </div>
+            
+    
+    <!---------------------------------------------------User Database--------------------------------------------------- -->
+
+  <div class="btn-group btn-group-justified">
+      <a href="#" class="btn btn-primary">Complaint Database</a>
+  </div>
+  <div>
+      <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+      width="100%">
+          <thead>
+              <tr>
+                  <th scope="row" onclick="sortTable(0)">CUSTOMER_NAME</th>
+                  <th scope="row" onclick="sortTable(1)">EMAIL</th>
+                  <th scope="row" onclick="sortTable(0)">PHONE_NUMBER</th>
+                  <th scope="row" onclick="sortTable(1)">DATE</th>
+                  <th scope="row" onclick="sortTable(0)">TOPIC</th>
+                  <th scope="row" onclick="sortTable(1)">DESCRIPTION</th>
+                  <th scope="row" onclick="sortTable(0)">SERVICE_AGENT</th>
+                  <th scope="row" onclick="sortTable(1)">STATUS</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for row in issues %}
+                  <tr>
+                      <td style="color: black;">{{row["CUSTOMERNAME"]}}</td>
+                      <td style="color: black;">{{row["EMAIL"]}}</td>
+                      <td style="color: black;">{{row["PHONE"]}}</td>
+                      <td style="color: black;">{{row["DATE"]}}</td>
+                      <td style="color: black;">{{row["TOPIC"]}}</td>
+                      <td style="color: black;">{{row["DESCRIPTION"]}}</td>
+                      <td style="color: black;">{{row["SERVICEAGENT"]}}</td>                        
+                      <td style="color: black;">{{row["STATUS"]}}</td>
+                  </tr>
+                  <br>
+              {% endfor %}
+          </tbody>
+        </table>
+  </div>
+<br>
+<br>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="{{ url_for('viewmine') }}" method="post">
+        <h1>VIEW MY COMPLAINTS</h1><br>			
+              <input type="text" placeholder="name"  name="uname"/>
+        <input type="email" placeholder="Email" name="email"/>
+              <input type="text" placeholder="phone no" name="phone"/>
+              <br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          
+        
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>I'm Admin!</h1>
+          <p>Enter your details to view the complaints assigned to you </p>
+          <img src="static/images/admin.webp" width="200px">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+<script>
+
+            let nav = document.querySelector("nav");
+            let scrollBtn = document.querySelector(".scroll-button a");
+            console.log(scrollBtn);
+            let val;
+            window.onscroll = function() {
+              if(document.documentElement.scrollTop > 20){
+                nav.classList.add("sticky");
+                scrollBtn.style.display = "block";
+              }else{
+                nav.classList.remove("sticky");
+                scrollBtn.style.display = "none";
+              }
+            
+            }
+            
+            // Side NavIgation Menu JS Code
+            let body = document.querySelector("body");
+            let navBar = document.querySelector(".navbar");
+            let menuBtn = document.querySelector(".menu-btn");
+            let cancelBtn = document.querySelector(".cancel-btn");
+            menuBtn.onclick = function(){
+              navBar.classList.add("active");
+              menuBtn.style.opacity = "0";
+              menuBtn.style.pointerEvents = "none";
+              body.style.overflow = "hidden";
+              scrollBtn.style.pointerEvents = "none";
+            }
+            cancelBtn.onclick = function(){
+              navBar.classList.remove("active");
+              menuBtn.style.opacity = "1";
+              menuBtn.style.pointerEvents = "auto";
+              body.style.overflow = "auto";
+              scrollBtn.style.pointerEvents = "auto";
+            }
+            
+            // Side Navigation Bar Close While We Click On Navigation Links
+            let navLinks = document.querySelectorAll(".menu li a");
+            for (var i = 0; i < navLinks.length; i++) {
+              navLinks[i].addEventListener("click" , function() {
+                navBar.classList.remove("active");
+                menuBtn.style.opacity = "1";
+                menuBtn.style.pointerEvents = "auto";
+              });
+            }
+            
+            
+            //table code
+            
+            
+            $(document).ready(function () {
+              $('#dtHorizontalExample').DataTable({
+                "scrollX": true
+              });
+              $('.dataTables_length').addClass('bs-select');
+            });
+</script>    
+</body>
+</html>

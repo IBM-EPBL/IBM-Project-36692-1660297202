@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/FAQ.css') }}">
+    <title>View user complaints</title>
+</head>
+<body>
+
+
+    <!DOCTYPE html>
+<html>
+<head>
+<title>Signup</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/reg.css') }}" /> 
+</head>
+<body>
+    
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="{{ url_for('myusercomp') }}" method="POST">
+			<h1>Enter details to view your complaints</h1><br>			
+            <input type="text" placeholder="name"  name="uname"/>
+			      <input type="email" placeholder="Email" name="email"/>
+            <input type="text" placeholder="phone no" name="phone"/>
+            <br>
+			<button type="submit">SUMMIT</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				
+			
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>I'm User !</h1>
+				<p>Enter your personal details to view your complaints </p>
+				<img src="static/images/admin.webp" width="200px">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+</body>
+</html>
+
+
+
+
+<script>
+            window.watsonAssistantChatOptions = {
+            integrationID: "0032bdd2-5b59-4312-a00c-cece7ea268f0", // The ID of this integration.
+            region: "au-syd", // The region your integration is hosted in.
+            serviceInstanceID: "30b01793-f193-4ada-a147-4610ae753688", // The ID of your service instance.
+            onLoad: function(instance) { instance.render(); }
+          };
+          setTimeout(function(){
+            const t=document.createElement('script');
+            t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+          });
+      
+          // Sticky Navigation Menu JS Code
+      let nav = document.querySelector("nav");
+      let scrollBtn = document.querySelector(".scroll-button a");
+      console.log(scrollBtn);
+      let val;
+      window.onscroll = function() {
+        if(document.documentElement.scrollTop > 20){
+          nav.classList.add("sticky");
+          scrollBtn.style.display = "block";
+        }else{
+          nav.classList.remove("sticky");
+          scrollBtn.style.display = "none";
+        }
+      
+      }
+      
+      // Side NavIgation Menu JS Code
+      let body = document.querySelector("body");
+      let navBar = document.querySelector(".navbar");
+      let menuBtn = document.querySelector(".menu-btn");
+      let cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = function(){
+        navBar.classList.add("active");
+        menuBtn.style.opacity = "0";
+        menuBtn.style.pointerEvents = "none";
+        body.style.overflow = "hidden";
+        scrollBtn.style.pointerEvents = "none";
+      }
+      cancelBtn.onclick = function(){
+        navBar.classList.remove("active");
+        menuBtn.style.opacity = "1";
+        menuBtn.style.pointerEvents = "auto";
+        body.style.overflow = "auto";
+        scrollBtn.style.pointerEvents = "auto";
+      }
+      
+      // Side Navigation Bar Close While We Click On Navigation Links
+      let navLinks = document.querySelectorAll(".menu li a");
+      for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click" , function() {
+          navBar.classList.remove("active");
+          menuBtn.style.opacity = "1";
+          menuBtn.style.pointerEvents = "auto";
+        });
+      }
+      
+      
+      //faq
+      
+      
+      
+      const question = document.querySelectorAll('.faq');
+      
+      question.forEach(faq => {
+          faq.addEventListener("click", () => {
+              faq.classList.toggle("active");
+          })
+      })
+      </script>
+</body>
+</html>

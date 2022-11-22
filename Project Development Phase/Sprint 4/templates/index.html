@@ -1,0 +1,522 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+  <title>Index</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/FAQ.css') }}">
+{% endblock %}
+
+{% block body %}
+<!-- Move to up button -->
+<style>
+
+@media(min-width:568px){
+    .end{
+        margin-left: auto;
+    }
+}
+
+@media(max-width:768px){
+    #post{
+        width: 30%;
+    }
+}
+#clicked{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+    width: 100%;
+    background-color: #0030668e;
+    border-color: #a85534 #9c5331 #844329;
+    color: #ac8787;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 13px; 
+}
+
+#profile{
+    background-color: unset;
+    
+} 
+
+#post{
+    margin: 10px;
+    padding: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+    background-color: #00599493;
+    border-color: #036085b7 #003866ab #844329;
+    color: rgb(0, 0, 0);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 13px;
+    width: 50%;
+}
+
+
+
+#nav-items li a,#profile{
+    text-decoration: none;
+    color: rgb(224, 219, 219);
+}
+
+
+.comments{
+    margin-top: 5%;
+    margin-left: 20px;
+}
+
+.darker{
+    border: 1px solid #ec4f1f;
+    float: right;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.comment{
+    border: 1px solid rgb(32, 107, 115);
+    background-color: rgb(32, 107, 115);
+    float: left;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    
+}
+.comment h4,.comment span,.darker h4,.darker span{
+    display: inline;
+}
+
+.comment p,.comment span,.darker p,.darker span{
+    color: rgb(184, 183, 183);
+}
+
+h1,h4{
+    color: white;
+    font-weight: bold;
+}
+label{
+    color: whites;
+}
+
+#align-form{
+    margin-top: 20px;
+}
+.form-group p a{
+    color: white;
+}
+
+
+#darker img{
+    margin-right: 15px;
+    position: static;
+}
+
+.form-group input,.form-group textarea{
+    border: 1px solid rgb(8, 49, 112);
+    border-radius: 12px;
+}
+
+form{
+    border: 1px solid rgb(8, 49, 112);
+    background-color: rgb(8, 49, 112);
+    border-radius: 5px;
+    padding: 20px;
+ }
+</style>
+  <div style="background-color: red;color: aliceblue;">{{msg}}</div>
+  <div class="scroll-button">
+    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+  </div>
+  <!-- navgaition menu -->
+  <nav>
+    <div class="navbar">
+      <div class="logo"><a href="#">Customer Care</a></div>
+      <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Comments</a></li>
+          <li><a href="#product">Categories</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="{{ url_for('signup') }}">Signup</a>
+          </li>
+          <li><a href="{{ url_for('login') }}">Login</a>
+          </li>
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+      </ul>
+      <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+<!-- Home Section Start -->
+ <section class="home" id="home">
+   <div class="home-content">
+     <div class="text">
+       <div class="text-one">Welcome,</div>
+       <div class="text-two">Customer Care</div>
+       <div class="text-three">Customer Loyalty is Priceless</div>
+       <div class="text-four">From India</div>
+     </div>
+     <div class="button">
+       <a id="agentreg" href="{{ url_for('agentreg') }}">Agent Registeration</a>
+       <br>
+       <br>
+       <a id="agentlogin" href="{{ url_for('agentlogin') }}">Agent login</a>
+     </div>
+   </div>
+ </section>
+
+<!-- About Section Start -->
+<section class="about" id="about">
+  <div class="content">
+    <div class="title"><span>About Us</span></div>
+  <div class="about-details">
+    <div class="left">
+      <img src="static/images/background.png" alt="">
+    </div>
+    <div class="right">
+      <div class="topic">Customer Care Info</div>
+      <p style="font-size: 22px;">Our role is to help the customers by dealing with their complaints . We connect agents and customers by raising the 
+        queries provide by the customer in the form of tickets. It includes responding to customer's ticket in a thorough 
+        and timely manner and interacting with customers and solve the queries that are raised by the customers effectively.</p>
+      <div class="button">
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<!-- My Skill Section Start -->
+<!-- Section Tag and Other Div will same where we need to put same CSS -->
+<section style="background-color: #F0F8FF; ">
+  <div class="container">
+      <div class="row">
+        <h1 style="color:  #1d1f1f;text-align: center;">Leave a comment</h1>
+          <div class="col-sm-5 col-md-6 col-12 pb-4">
+              <form id="algin-form">
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="fullname" class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control">
+                    <button type="button" id="post" class="btn">Post Comment</button>
+                </div>
+            </form>
+          </div>
+          <div class="col-sm-5 col-md-6 col-12 pb-4"> 
+              <div class="comment mt-4 text-justify float-right">
+                  
+                  <h4>Yogesh</h4>
+                  <br>
+                  <p>Great service, efficient communication and a really easy 
+                    way to get a mortage with lots of help and support to 
+                    get the right deal.</p>
+              </div>
+              <br>
+              <br><br><br>
+              <br><br>
+              <div class="comment mt-4 text-justify float-right">
+                  
+                <h4>Dinesh</h4>
+                <br>
+                <p>Excellent customer service! Whenever I needed something
+                  they were there for me. Thank you guys.</p>
+              </div>
+              <br>
+              <br><br><br>
+              <br><br>
+              <div class="comment mt-4 text-justify float-right">
+                  
+                <h4>Navrang</h4>
+                <br>
+                <p>A fantastic organisation! Great customer support from 
+                  beginning to end of the process. The team are really 
+                  informed and go the extra mile at every stage. </p>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</section>
+
+<!-- My Services Section Start -->
+ <section class="services" id="product">
+   <div class="content">
+     <div class="title"><span>Categories</span></div>
+     <div class="boxes">
+       <div class="box">
+         <div class="icon">
+          <i class="fa fa-bank"></i>
+       </div>
+       <div class="topic">Banking</div>
+       <p>Service includes answering questions; handling complaints related to their account. </p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-car"></i>
+       </div>
+       <div class="topic">Automobiles</div>
+       <p>We provide the details of the spare parts , nearby service centre ,nearby showroom and solution to some queries raised by customer.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-home"></i>
+       </div>
+       <div class="topic">Home Appliances</div>
+       <p>Complete Professional Service and Repair Provider for all your Home Appliances.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-plug"></i>
+       </div>
+       <div class="topic">Electronics</div>
+       <p>with the direct connection with the product brand the queries are clear and the service is provided for your electronic devices.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fab fa-android"></i>
+       </div>
+       <div class="topic">Mobiles</div>
+       <p>Mobile technologies are developing at a rapid rate, and brands are doing their best to keep up. The challenge for organizations is to ensure that their mobile solutions meet customer demands by checking is there any complaint raised on the product.</p>
+     </div>
+       <div class="box">
+         <div class="icon">
+           <i class="fa fa-cart-plus"></i>
+       </div>
+       <div class="topic">E-Shopping</div>
+       <p>Connecting with the retailer and the courier service we provide the details that are required by the customers.</p>
+     </div>
+   </div>
+   </div>
+</section>
+
+
+
+<div class="section" id="faq">
+        <div class="content">
+          <h1 class="title">FAQ Section</h1>
+          <div class="container-1">
+  
+              <div class="faq">
+                  <div class="question">
+                      <h2>How long will it take to update a change of address?</h2>
+                      <i class="fa fa-arrow-circle-o-right"></i>
+                  </div>
+                  <div class="answer">
+                      <p>It takes 7 Working days for bank to process the request from the time complete request is given.</p>
+                  </div>
+              </div>
+  
+              <div class="faq">
+                  <div class="question">
+                      <h2>My brakes make noise when I engage them. Is this an issue?</h2>
+                      <i class="fa fa-arrow-circle-o-right"></i>
+                  </div>
+                  <div class="answer">
+                      <p>If your brakes make a grinding or squeaking noise, it normally means your brake pads are worn out and need to be changed.  It is always best to have any noise your brakes make looked at by a professional technician to make sure it isn't a safely issue.
+                      </p>
+                  </div>
+              </div>
+  
+              <div class="faq">
+                  <div class="question">
+                      <h2>
+                        What is the average life span of a residential air conditions?</h2>
+                      <i class="fa fa-arrow-circle-o-right"></i>
+                  </div>
+                  <div class="answer">
+                      <p> Generally, the average life span of any air conditioner is six to seven years. This is subjected to usage pattern and regular servicing of the air conditioner by a qualified air conditioner technician.
+                      </p>
+                  </div>
+              </div>
+  
+          </div></div>
+
+        <div class="container-2">
+
+            <div class="faq">
+                <div class="question">
+                    <h2>What do I do if my hard disk fails to work?</h2>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </div>
+                <div class="answer">
+                    <p>As with most computer errors, your first step is to shut down your computer and restart it. This will help you determine whether or not you actually have a hard disk problem. If the disk is severely damaged then your computer will probably fail to restart properly. </p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="question">
+                    <h2>Battery draining issues?</h2>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </div>
+                <div class="answer">
+                    <p>Check whether the battery is drain is caused by any particular app in settings > Battery & performance > Battery usage status or fully charge your device using the supplied charger and check whether battery drain occurs again .If you still can't solve the problem then the device's batteryy is at the end of its life cycle.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="question">
+                    <h2>
+                      How much will the shipping cost me?</h2>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </div>
+                <div class="answer">
+                    <p>All orders worth ₹1199 or above, will be shipped free of cost. For any orders below ₹1199, a nominal fee of ₹99 would be applied.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!--<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>click button </span></div>
+    <div class="text">
+      
+      <div class="button">
+        <p><a href="../register.html"><button>register now</button></a></p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>-->
+
+
+<!--<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>click button </span></div>
+    <div class="text">
+      
+      <div class="button">
+        <p><a href="../Customer Care Registry/login.html"><button>Sign up</button></a></p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>-->
+
+
+<!-- Contact Me section Start -->
+<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>Contact Us</span></div>
+    <div class="text">
+      <div class="topic"></div>
+      <p>whether you have a question about features,need a demo, or anything else , our team is ready to answer all your questions .
+        get in touch.</p>
+        <p>nareshkumardevarajt@gmail.com |2001sathish16@gmail.com</p>
+        <p>7548850255 | 8072991874</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer Section Start -->
+<footer>
+  <div class="text">
+    <span>Created By   </span>
+    <br>
+    <span>Santhosh.K   |</span>
+    <span>Naresh kumar.D   |</span>
+    <span>Sathishkumar.P   |</span>
+    <span>Yogeshkumar.K   |</span>
+  </div>
+</footer>
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "0032bdd2-5b59-4312-a00c-cece7ea268f0", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "30b01793-f193-4ada-a147-4610ae753688", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+
+    // Sticky Navigation Menu JS Code
+let nav = document.querySelector("nav");
+let scrollBtn = document.querySelector(".scroll-button a");
+console.log(scrollBtn);
+let val;
+window.onscroll = function() {
+  if(document.documentElement.scrollTop > 20){
+    nav.classList.add("sticky");
+    scrollBtn.style.display = "block";
+  }else{
+    nav.classList.remove("sticky");
+    scrollBtn.style.display = "none";
+  }
+
+}
+
+// Side NavIgation Menu JS Code
+let body = document.querySelector("body");
+let navBar = document.querySelector(".navbar");
+let menuBtn = document.querySelector(".menu-btn");
+let cancelBtn = document.querySelector(".cancel-btn");
+menuBtn.onclick = function(){
+  navBar.classList.add("active");
+  menuBtn.style.opacity = "0";
+  menuBtn.style.pointerEvents = "none";
+  body.style.overflow = "hidden";
+  scrollBtn.style.pointerEvents = "none";
+}
+cancelBtn.onclick = function(){
+  navBar.classList.remove("active");
+  menuBtn.style.opacity = "1";
+  menuBtn.style.pointerEvents = "auto";
+  body.style.overflow = "auto";
+  scrollBtn.style.pointerEvents = "auto";
+}
+
+// Side Navigation Bar Close While We Click On Navigation Links
+let navLinks = document.querySelectorAll(".menu li a");
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click" , function() {
+    navBar.classList.remove("active");
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerEvents = "auto";
+  });
+}
+
+
+//faq
+
+
+
+const question = document.querySelectorAll('.faq');
+
+question.forEach(faq => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+    })
+})
+</script>
+{% endblock %}

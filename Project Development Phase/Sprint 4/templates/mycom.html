@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/reg.css') }}" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title> My Complaint</title>
+</head>
+<body>
+    <div class="container-md" style="padding-top: 100px;">
+    
+        <div class="row" style="height:100px;">
+            <h1 class="page-header text-primary mx-auto" style="text-align: center; color: #2B7C85; font-family:'Ubuntu', sans-serif ;">   Complaints assigned to me </h1>
+        </div>
+
+    </div>
+    <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">Complaint Database</a>
+    </div>
+    <div>
+        <table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+        width="100%">
+            <thead>
+                <tr>
+                    <th scope="row" onclick="sortTable(0)">CUSTOMER_NAME</th>
+                    <th scope="row" onclick="sortTable(1)">EMAIL</th>
+                    <th scope="row" onclick="sortTable(0)">PHONE_NUMBER</th>
+                    <th scope="row" onclick="sortTable(1)">DATE</th>
+                    <th scope="row" onclick="sortTable(0)">TOPIC</th>
+                    <th scope="row" onclick="sortTable(1)">DESCRIPTION</th>
+                    <th scope="row" onclick="sortTable(0)">STATUS</th>
+                    <th scope="row" onclick="sortTable(1)">COMPLETED</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in issues %}
+                    <tr>
+                        <td style="color: black;">{{row["CUSTOMERNAME"]}}</td>
+                        <td style="color: black;">{{row["EMAIL"]}}</td>
+                        <td style="color: black;">{{row["PHONE"]}}</td>
+                        <td style="color: black;">{{row["DATE"]}}</td>
+                        <td style="color: black;">{{row["TOPIC"]}}</td>
+                        <td style="color: black;">{{row["DESCRIPTION"]}}</td>
+                        <td style="color: black;">{{row["STATUS"]}}</td>
+                        <td><a style="color: black;" href="/completed/{{row['EMAIL']}} " type="button" class="btn btn-outline-secondary">COMPLETE</a></td>
+
+                    </tr>
+                    <br>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+  <br>
+
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="{{ url_for('sendmail') }}" method="post">
+        <h1>SENDING EMAIL TO CLIENT</h1><br>			
+              <input class="form-control" type="email" placeholder="fromagent@gmail.com" name="email"/>
+              <br>
+              <input class="form-control" type="text" placeholder="tocustomer@gmail.com" name="phone"/>
+              <br>
+              <input class="form-control" type="text" name="subject" placeholder="subject">
+              <br>
+              <!-- <input type="text" name="body" placeholder="body"> -->
+              <textarea name="body" class="form-control" placeholder="body of the mail" cols="65" rows="4"></textarea>
+
+              <br>
+        <button type="submit">SEND</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          
+        
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>I'm AGENT</h1>
+          <p>Contact Customer care to resolve complaint ticket </p>
+          <img src="static/images/admin.webp" width="200px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
