@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-care
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: customer-care
+  template:
+    metadata:
+      labels:
+        app: customer-care
+
+    spec:
+      containers:
+        - name: customer-care
+          image: icr.io/customer-care/registry
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
